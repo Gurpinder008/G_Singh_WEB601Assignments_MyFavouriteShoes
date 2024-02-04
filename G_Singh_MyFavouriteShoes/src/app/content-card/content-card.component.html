@@ -1,11 +1,11 @@
 <!-- content-card.component.html -->
 
-<div *ngFor="let content of getContentList()">
+<div *ngFor="let content of contentList.getAll()">
     <div class="content-card">
       <h2>{{ content.title }}</h2>
       <p>{{ content.description }}</p>
       <p>Creator: {{ content.creator }}</p>
-      <p *ngIf="content.imgURL">Image URL: {{ content.imgURL }}</p>
+      <img *ngIf="content.imgURL" [src]="content.imgURL" alt="{{ content.title }} Image">
       <p *ngIf="content.type">Type: {{ content.type }}</p>
       <p *ngIf="content.tags?.length">Tags: {{ content.tags?.join(', ') }}</p>
     </div>
